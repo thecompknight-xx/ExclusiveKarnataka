@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>c</short-name>
+  <uri>http://mojavelinux.com/taglibs/phase/core</uri>
+  <display-name>Phase Core Taglib</display-name>
+  <description>Phase Core Tag Library</description>
+
+  <!--
+  @todo missing url, param and forTokens to complete the JSTL core set
+  -->
+
+  <tag>
+    <name>catch</name>
+    <tag-class>phase.tags.core.CoreCatchTag</tag-class>
+  	<description>
+		Catches any exception that is thrown in its body and optionally exposes it.
+	</description>
+  </tag>
+
+  <tag>
+    <name>choose</name>
+    <tag-class>phase.tags.core.CoreChooseTag</tag-class>
+	<description>
+		Conditional context tag for mutually exclusive conditional operations,
+		marked by any number of &lt;when&gt; tags and up to one
+		&lt;otherwise&gt; tag.
+	</description>
+  </tag>
+
+  <tag>
+    <name>out</name>
+    <tag-class>phase.tags.core.CoreOutTag</tag-class>
+  	<description>
+		A print tag for outputting the value of the expression to the client.
+	</description>
+  </tag>
+
+  <tag>
+    <name>if</name>
+    <tag-class>phase.tags.core.CoreIfTag</tag-class>
+  	<description>
+		Conditional tag, including the body only if the supplied condition
+		evaluates to true, optionally exposing the result to a context
+		variable.
+	</description>
+  </tag>
+
+  <tag>
+    <name>import</name>
+    <tag-class>phase.tags.core.CoreImportTag</tag-class>
+  	<description>
+		Retrieves an absolute or relative URL or file and exposes its contents
+		to either the output or a context variable.
+	</description>
+  </tag>
+
+  <tag>
+    <name>forEach</name>
+    <tag-class>phase.tags.core.CoreForEachTag</tag-class>
+  	<description>
+		An iteration tag, offering great flexibility in the collections is
+		processes.
+	</description>
+  </tag>
+
+  <tag>
+    <name>otherwise</name>
+    <tag-class>phase.tags.core.CoreOtherwiseTag</tag-class>
+  	<description>
+		A subtag of &lt;choose&gt; that must follow any &lt;when&gt; tags,
+		running only if all other conditions evaluate to false.
+	</description>
+  </tag>
+
+  <tag>
+    <name>redirect</name>
+    <tag-class>phase.tags.core.CoreRedirectTag</tag-class>
+  	<description>
+		Redirect the client to a new URL, using the servlet API redirect
+		capabilities.	
+	</description>
+  </tag>
+
+  <tag>
+    <name>remove</name>
+    <tag-class>phase.tags.core.CoreRemoveTag</tag-class>
+  	<description>
+		Removes a context variable.
+	</description>
+  </tag>
+
+  <tag>
+    <name>set</name>
+    <tag-class>phase.tags.core.CoreSetTag</tag-class>
+  	<description>
+		Set the result of the expression to the context variable specified.	
+	</description>
+  </tag>
+
+  <tag>
+    <name>when</name>
+    <tag-class>phase.tags.core.CoreWhenTag</tag-class>
+  	<description>
+		Subtag of &lt;choose&gt; that functions just like the &lt;if&gt; tag,
+		including the body only if the condition evaluates to true.
+	</description>
+  </tag>
+
+</taglib>

@@ -1,0 +1,20 @@
+<%@ taglib uri="/WEB-INF/tld/studs-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/tld/studs-template.tld" prefix="template" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title><template:get name="title" /></title>
+	</head>
+	<body>
+		<h3><template:get name="heading" /></h3>
+		<p><template:get name="intro" /></p>
+		<p style="border: 1px dashed #999999; background-color: #F0F0F0;">
+	    <template:get name="content" />
+		</p>
+		<p style="border: 1px dashed #999999; background-color: #F0F0F0;">
+	    <template:get name="content2" />
+		</p>
+		<p>&laquo; <html:link forward="welcome">Back</html:link></p>
+	</body>
+</html>

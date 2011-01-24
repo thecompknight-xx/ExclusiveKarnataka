@@ -1,0 +1,19 @@
+<%@ page language="php" %>
+<%@ taglib uri="/WEB-INF/tld/phase-core.tld" prefix="c" %>
+<%@ taglib uri="/WEB-INF/tld/phase-fmt.tld" prefix="fmt" %>
+<%@ taglib uri="/WEB-INF/tld/studs-html.tld" prefix="html" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title><fmt:message key="welcome.title" /></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<h3><fmt:message key="welcome.heading" /></h3>
+		<p><fmt:message key="welcome.message" /></p>
+		<p><html:link action="/example">Click here</html:link> for an example of the template tag library.</p>
+		<c:set var="welcomePageViewCount" value="${applicationScope.welcomePageViewCount + 1}" scope="application"/>
+		<p style="font-size: small;"><fmt:message key="pageviews.message" arg0="${applicationScope.welcomePageViewCount}"/></p>
+	</body>
+</html>

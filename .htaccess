@@ -1,0 +1,39 @@
+<FilesMatch "^.*$">
+    deny from all
+</FilesMatch>
+
+<FilesMatch "index\.php$">
+    allow from all
+</FilesMatch>
+
+<FilesMatch "^$">
+    allow from all
+</FilesMatch>
+
+# If we want to allow apache to serve assets, we place the unrestricted list
+# here...unfortunately there is no way to keep a person out of the WEB-INF
+# directory if that is not blocked on the server config level...if this option
+# is used, the controlAllResources in web.xml should be false,
+<FilesMatch "^.*\.(gif|jpeg|jpg|png|css|js|pdf|doc)$">
+    allow from all
+</FilesMatch>
+
+# Some instances of apache are configured without this, which causes
+# $_SERVER['PATH_INFO'] to return null and makes Studs not work propertly
+AcceptPathInfo On
+
+# setup include path (must be in index.php to use DIRECTORY_SEPARATOR)
+#php_value include_path WEB-INF/lib:WEB-INF/classes
+
+# set the error reporting to E_ALL (2047)
+php_value error_reporting 2047
+# allow errors to be displayed (exception handling won't work without this!)
+php_value display_errors 1
+# turn off those nasty globals!
+php_value register_globals 0
+# how bad of an idea was magic quotes!!
+php_value magic_quotes_gpc 0
+# don't show html errors (we strip them anyways)
+php_value html_errors 0
+# we have to allow allow_call_time_pass_reference for serialize() to work
+php_value allow_call_time_pass_reference 1

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<project name="Studs Basic" basedir="../.." default="package">
+	<property file="../../build.properties" />
+
+	<target name="package" depends="prepare">
+		<mkdir dir="../../${release.dir}/${project.release.version}"/>
+		<tar destfile="../../${release.dir}/${project.release.version}/studs-basic-${project.release.version}.tar.gz" compression="gzip">
+			<tarfileset dir="." prefix="studs-basic" defaultexcludes="yes">
+				<exclude name="classes/build.xml"/>
+				<exclude name="**/TODO"/>
+				<exclude name="**/NOTES"/>
+			</tarfileset>
+		</tar>
+	</target>
+
+	<target name="clean">
+		<!-- make sure to break symlinks -->
+		<symlink action="delete" link="${basedir}/WEB-INF/lib" failonerror="no"/>
+		<symlink action="delete" link="${basedir}/WEB-INF/tld" failonerror="no"/>
+
+		<delete includeemptydirs="yes" failonerror="no">
+			<fileset dir="WEB-INF/work">
+				<include name="**"/>
+			</fileset>
+			<fileset dir="WEB-INF/lib">
+				<include name="**"/>
+			</fileset>
+			<fileset dir="WEB-INF/tld">
+				<include name="**"/>
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="prepare" depends="clean">
+		<!-- create work directory -->
+		<mkdir dir="WEB-INF/work"/>
+		<chmod dir="WEB-INF/work" perm="0777" type="dir"/>
+		<!-- create lib directory and copy framework libraries -->
+		<mkdir dir="WEB-INF/lib"/>
+		<copy todir="WEB-INF/lib">
+			<fileset dir="../../src">
+				<include name="**"/>
+			</fileset>
+		</copy>
+		<!-- create tld directory and copy known tlds -->
+		<mkdir dir="WEB-INF/tld"/>
+		<copy todir="WEB-INF/tld">
+			<fileset dir="../../conf/tld">
+				<include name="*.tld"/>
+			</fileset>
+		</copy>
+		<!-- copy over the controller and server conf file -->
+		<copy todir=".">
+			<fileset dir="../../conf">
+				<include name="index.php"/>
+				<include name=".htaccess"/>
+			</fileset>
+		</copy>
+	</target>
+</project>

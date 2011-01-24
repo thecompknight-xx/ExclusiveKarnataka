@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>str</short-name>
+  <uri>http://mojavelinux.com/taglibs/phase/str</uri>
+  <display-name>Phase String Taglib</display-name>
+  <description>Phase String Tag Library</description>
+
+  <tag>
+    <name>replace</name>
+    <tag-class>phase.tags.string.StringReplaceTag</tag-class>
+  	<description>
+		Replaces all instances of "replace" value with instances of "with" value in the body.
+	</description>
+  </tag>
+
+</taglib>

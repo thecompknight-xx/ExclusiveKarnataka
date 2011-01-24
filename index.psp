@@ -1,0 +1,4 @@
+<%@ page language="php" %>
+<%@ taglib uri="/WEB-INF/tld/phase-core.tld" prefix="c" %>
+<%@ taglib uri="/WEB-INF/tld/studs-html.tld" prefix="html" %>
+<c:redirect context="/"><html:rewrite forward="welcome"/></c:redirect>

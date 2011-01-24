@@ -1,0 +1,18 @@
+<%@ taglib uri="/WEB-INF/tld/studs-template.tld" prefix="template" %>
+<%@ taglib uri="/WEB-INF/tld/phase-string.tld" prefix="str" %>
+<%@ taglib uri="/WEB-INF/tld/phase-core.tld" prefix="c" %>
+<template:insert template="/pages/tmpl/template.psp">
+    <template:put name="title" content="Studs :: Template Taglib Example" direct="true"/>
+	<template:put name="heading" direct="true">Template Taglib Example</template:put>
+	<template:put name="intro" direct="true">
+This page demonstrates the use of the studs template taglib.  Content is inserted by the parent page either directly or via an include file.  Below are two examples of content insertion.
+	</template:put>
+    <template:put name="content" direct="true">
+<str:replace replace="LF" with="&lt;br /&gt;">This text was specified inline using the template:put tag.
+
+It also uses the str:replace taglib to convert endlines to BR tags.
+
+I am also testing the conditional EL syntax.  <strong>${2 % 2 ? 'odd' : 'even'}</strong></str:replace>
+    </template:put>
+    <template:put name="content2" content="/pages/tmpl/content.psp" />
+</template:insert>
